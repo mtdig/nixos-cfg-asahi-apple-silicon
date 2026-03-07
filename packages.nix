@@ -58,11 +58,11 @@
     # google-chrome
     home-manager
     jetbrains.idea
-    # kicad
+    kicad
     # mysql-workbench
     obs-studio
     rpi-imager
-    # scenebuilder
+    scenebuilder
     # slack
     thunderbird
     vlc

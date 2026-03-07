@@ -2,16 +2,21 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./apple-silicon-support
-      ./packages.nix
-      ./user/rust.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./apple-silicon-support
+    ./packages.nix
+    ./user/rust.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -28,7 +33,6 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -40,12 +44,32 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
-  services.xserver.xkb = {
-    layout = "be";
-    variant = "";
-    model = "pc105";
-  };
+  #  services.xserver.xkb = {
+  #    layout = "be";
+  #    variant = "";
+  #    model = "apple_iso";
+  #    # model = "pc105";
+  #  };
 
+  services.xserver.xkb = {
+    layout = "be-apple";
+    model = "apple_iso";
+    extraLayouts.be-apple = {
+      description = "Belgian (Apple keyboard)";
+      languages = [ "bel" ];
+      symbolsFile = pkgs.writeText "be-apple" ''
+        partial alphanumeric_keys
+        xkb_symbols "basic" {
+          include "be(basic)"
+          name[Group1] = "Belgian (Apple)";
+          key <TLDE> { [ at, numbersign, dead_grave, dead_tilde ] };
+          key <AE05> { [ parenleft,  5,      braceleft,  bracketleft  ] };
+          key <AE11> { [ parenright, degree, braceright, bracketright ] };
+          key <AD06> { [ n, N, asciitilde ] };
+        };
+      '';
+    };
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -81,7 +105,6 @@
   nix.settings.pure-eval = false;
   nix.settings.extra-sandbox-paths = [ "/boot" ];
 
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -103,17 +126,18 @@
     "python3.13-ecdsa-0.19.1"
   ];
 
-
   users.users.jeroen = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "docker" "libvirtd" "dialout"];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "docker"
+      "libvirtd"
+      "dialout"
+    ];
     initialPassword = "changeme";
   };
-
-
-
-
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -147,7 +171,7 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     neovim
     git
@@ -204,4 +228,3 @@
   ];
 
 }
-
