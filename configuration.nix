@@ -62,10 +62,10 @@
         xkb_symbols "basic" {
           include "be(basic)"
           name[Group1] = "Belgian (Apple)";
-          key <TLDE> { [ at, numbersign, dead_grave, dead_tilde ] };
+          key <TLDE> { [ at, numbersign, grave, asciitilde ] };
           key <AE05> { [ parenleft,  5,      braceleft,  bracketleft  ] };
           key <AE11> { [ parenright, degree, braceright, bracketright ] };
-          key <AD06> { [ n, N, asciitilde ] };
+          key <AB06> { [ n, N, asciitilde, dead_tilde ] };
         };
       '';
     };
