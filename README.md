@@ -16,9 +16,9 @@
 
 ## Introduction
 
-_A fair warning to future self._
+_A fair but serious warning to future self and all else considering taking this path._
 
-Getting this to work, hurt a little.  At least when doing the LUSTRATE in-place setup: installing a fresh instance of maybe a different distro, in an existing asahi linux instance.  There's much friction and yak shaving. If you want to do this, maybe start with an LFS or Gentoo (the manual way) in a VM to get comfortable with this kind of stuff again. Not that this is exeptionally hard, but we're doing this in a fairly fragile environment.
+Getting this to work, hurt a little.  At least when doing the LUSTRATE in-place setup: installing a fresh instance of maybe a different distro, in an existing asahi linux instance.  There's much friction and yak shaving. If you want to do this, maybe start with an LFS or Gentoo (the manual way) in a VM to get comfortable with this kind of stuff again. Not that this is exeptionally hard, but we're doing this in a fairly fragile environment and you'll need a bit of luck with usb pendrives, too.
 
 We're going to handle different boot stages, create filesystems, mount and chroot, copy over files, troubleshoot a lot, compile kernel, ..
 
@@ -30,7 +30,6 @@ All worth it ... (for now)
 
 ## The Good
 
-_HABEMUS ASAHI NIXOS!_
 
 ![HABEMUS ASAHI LINUX!](img/habemus_asahi_nixos.png)
 
