@@ -79,6 +79,7 @@
 
   networking.extraHosts = ''
     192.168.122.20 sel_site.local
+    192.168.122.40 opdracht3.sel.edu
   '';
 
   networking.wireless.iwd = {
