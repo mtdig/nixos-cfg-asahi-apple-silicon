@@ -59,7 +59,8 @@
       gp = "git push ";
       ga = "git add .";
       gc = "git commit -am ";
-
+      md = "glow -w 120 -p ";
+      vmctl = "virsh -c qemu:///system ";
     };
   };
 

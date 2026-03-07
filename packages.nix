@@ -51,7 +51,7 @@
     zip
 
     # productivity
-    # dbeaver-bin # naoa
+    dbeaver-bin # naoa
     # discord # not available on aarch64
     ghostty
     gimp

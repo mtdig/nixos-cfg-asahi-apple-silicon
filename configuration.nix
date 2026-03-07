@@ -66,6 +66,7 @@
           key <AE05> { [ parenleft,  5,      braceleft,  bracketleft  ] };
           key <AE11> { [ parenright, degree, braceright, bracketright ] };
           key <AB06> { [ n, N, asciitilde, dead_tilde ] };
+          key <BKSL> { [ grave, sterling, dead_grave, dead_breve ] };
         };
       '';
     };
@@ -75,6 +76,10 @@
   services.xserver.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
+
+  networking.extraHosts = ''
+    192.168.122.20 sel_site.local
+  '';
 
   networking.wireless.iwd = {
     enable = true;
@@ -166,7 +171,7 @@
   #   ];
   # };
 
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).

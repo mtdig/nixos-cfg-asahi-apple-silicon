@@ -11,6 +11,7 @@
       "gitlens.ai.model" = "vscode";
       "gitlens.ai.vscode.model" = "copilot:gpt-4.1";
       "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
+      "zig.zls.enabled"= "on";
     };
   };
 }
