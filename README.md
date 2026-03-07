@@ -4,11 +4,13 @@
 
 _A fair warning to future self._
 
-Getting this to work, hurt a little. There's much friction and yak shaving. If you want to do this, maybe start with an LFS or Gentoo (the manual way) in a VM to get comfortable with this kind of stuff again. Not that this is exeptionally hard, but we're doing this in a fairly fragile environment.
+Getting this to work, hurt a little.  At least when doing the LUSTRATE in-place setup: installing a fresh instance of maybe a different distro, in an existing asahi linux instance.  There's much friction and yak shaving. If you want to do this, maybe start with an LFS or Gentoo (the manual way) in a VM to get comfortable with this kind of stuff again. Not that this is exeptionally hard, but we're doing this in a fairly fragile environment.
 
 We're going to handle different boot stages, create filesystems, mount and chroot, copy over files, troubleshoot a lot, compile kernel, ..
 
 If this goes wrong, you'll need a second machine for the recovery.
+
+The fresh approach is involved but definitely feasible, with some perseverance and a few beers.
 
 All worth it ... (for now)
 
