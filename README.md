@@ -1,5 +1,19 @@
 # Asahi NixOS on Mac Silicon
 
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/AsahiLinux/artwork/main/logos/png_128/AsahiLinux_logomark.png" height="80" alt="Asahi Linux">
+&nbsp;&nbsp;&nbsp;✝&nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake-colours.svg" height="80" alt="NixOS">
+
+### 🎉 HABEMUS ASAHI NIXOS! 🎉
+
+*Annuntio vobis gaudium magnum… The white smoke has risen.*
+
+**Apple Silicon & NixOS, together at last.**
+
+</div>
+
 ## Introduction
 
 _A fair warning to future self._
