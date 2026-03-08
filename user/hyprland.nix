@@ -213,6 +213,10 @@
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
 
+        # ── Next/Previous workspace (Super + Fn+Left/Right = Super + Home/End) ──
+        "$mod, Home, workspace, e-1"
+        "$mod, End, workspace, e+1"
+
         # ── Screenshots ──
         ", Print, exec, hyprshot -m output"
         "SHIFT, Print, exec, hyprshot -m region"
