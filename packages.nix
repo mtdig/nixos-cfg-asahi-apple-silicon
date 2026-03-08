@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-duckdb-144, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -51,6 +51,7 @@
     zip
 
     # productivity
+    pkgs-duckdb-144.duckdb
     dbeaver-bin # naoa
     # discord # not available on aarch64
     ghostty
@@ -67,6 +68,8 @@
     thunderbird
     vlc
     wl-clipboard
+    rofi
+    conky
 
     # perf
     btop

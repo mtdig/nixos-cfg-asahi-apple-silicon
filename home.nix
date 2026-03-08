@@ -13,6 +13,8 @@
     ./user/ghostty.nix
     ./user/vscode.nix
     ./user/kde-shortcuts.nix
+    ./user/conky.nix
+    ./user/rofi.nix
   ];
 
   home.username = "jeroen";

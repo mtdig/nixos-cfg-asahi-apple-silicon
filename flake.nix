@@ -2,6 +2,7 @@
   description = "Jeroen's NixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-duckdb-144.url = "github:NixOS/nixpkgs/2fc6539b";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +26,7 @@
       nixpkgs,
       home-manager,
       rust-overlay,
+      nixpkgs-duckdb-144,
       nixvim,
       nixpkgs-esp-dev,
       ...
@@ -37,6 +39,7 @@
         inherit system;
         specialArgs = {
           pkgs-esp-idf = nixpkgs-esp-dev.packages.${system};
+          pkgs-duckdb-144 = nixpkgs-duckdb-144.legacyPackages.${system};
 
         };
         modules = [
