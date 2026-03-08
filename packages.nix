@@ -21,6 +21,7 @@
     rustup
     universal-ctags
     bear # compile_commands.json generator
+    rsync
     xxd
     zig
 
@@ -72,29 +73,30 @@
     conky
 
     # hyprland ecosystem
-    ironbar             # status bar (hyprland/mangowc)
-    waybar              # status bar (fallback)
-    mangowc             # wayland compositor
-    dunst               # notifications
-    hyprpaper           # wallpaper
-    hyprlock            # screen lock
-    hypridle            # idle management
-    hyprshot            # screenshot tool
-    wlogout             # logout menu
-    swappy              # screenshot editor
-    grim                # screenshot backend
-    slurp               # region selection
-    cliphist            # clipboard manager
-    brightnessctl       # brightness control
-    playerctl           # media controls
-    pavucontrol         # audio GUI
-    blueman             # bluetooth GUI
+    ironbar # status bar (hyprland/mangowc)
+    waybar # status bar (fallback)
+    mangowc # wayland compositor
+    dunst # notifications
+    hyprpaper # wallpaper
+    hyprlock # screen lock
+    hypridle # idle management
+    hyprshot # screenshot tool
+    wlogout # logout menu
+    swappy # screenshot editor
+    grim # screenshot backend
+    slurp # region selection
+    cliphist # clipboard manager
+    brightnessctl # brightness control
+    playerctl # media controls
+    pavucontrol # audio GUI
+    blueman # bluetooth GUI
     networkmanagerapplet # network tray
     kdePackages.polkit-kde-agent-1 # auth popups
-    libnotify           # notify-send
-    nwg-look            # GTK theme settings
-    nwg-displays        # monitor/display settings GUI
-    papirus-icon-theme  # icon theme for ironbar/rofi
+    libnotify # notify-send
+    nwg-look # GTK theme settings
+    nwg-displays # monitor/display settings GUI
+    wlr-randr # wlroots output management (MangoWC scaling)
+    papirus-icon-theme # icon theme for ironbar/rofi
     xdg-utils
     xdg-desktop-portal-hyprland
 

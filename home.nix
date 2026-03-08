@@ -18,6 +18,7 @@
     ./user/hyprland.nix
     ./user/waybar.nix
     ./user/ironbar.nix
+    ./user/mangowc.nix
   ];
 
   home.username = "jeroen";
@@ -95,6 +96,7 @@
       gc = "git commit -am ";
       md = "glow -w 120 -p ";
       vmctl = "virsh -c qemu:///system ";
+      rcp = "rsync -rlvz --progress ";
     };
   };
 

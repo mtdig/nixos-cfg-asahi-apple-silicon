@@ -1,4 +1,9 @@
-{ config, pkgs, pkgs-esp-idf, ... }:
+{
+  config,
+  pkgs,
+  pkgs-esp-idf,
+  ...
+}:
 
 let
   rustToolchain = pkgs.rust-bin.stable.latest.default.override {
@@ -6,11 +11,12 @@ let
       "x86_64-unknown-linux-gnu"
       "aarch64-unknown-linux-gnu"
       "aarch64-unknown-linux-musl"
-      "riscv32imc-unknown-none-elf"  # ESP32-C3
+      "riscv32imc-unknown-none-elf" # ESP32-C3
       "riscv32imac-unknown-none-elf" # ESP32-C6
     ];
   };
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     # Rust toolchain with ESP RISC-V targets
     rustToolchain
@@ -23,17 +29,17 @@ in {
     pkgs-esp-idf.esp-idf-full
 
     # ESP Rust tools
-    espflash           # serial flasher
-    espup              # toolchain installer (for Xtensa if ever needed)
-    esptool            # low-level flash/read utility
-    cargo-generate     # project scaffolding from templates
-    esp-generate       # esp-rs project generator (replaces esp-template)
-    ldproxy            # linker proxy for esp-idf-sys builds
-    probe-rs-tools     # on-chip debugging & flashing
+    espflash # serial flasher
+    espup # toolchain installer (for Xtensa if ever needed)
+    esptool # low-level flash/read utility
+    cargo-generate # project scaffolding from templates
+    esp-generate # esp-rs project generator (replaces esp-template)
+    ldproxy # linker proxy for esp-idf-sys builds
+    probe-rs-tools # on-chip debugging & flashing
   ];
 
   # Set cross-linker for aarch64 Rust builds
-  environment.variables.CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "aarch64-unknown-linux-gnu-gcc";
+  # environment.variables.CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "aarch64-unknown-linux-gnu-gcc";
 
   # udev rules for Espressif USB JTAG/serial devices
   services.udev.extraRules = ''

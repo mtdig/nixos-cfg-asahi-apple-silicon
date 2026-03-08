@@ -81,7 +81,23 @@
   programs.hyprland.enable = true;
 
   # MangoWC — session entry for SDDM login screen
-  services.displayManager.sessionPackages = [ pkgs.mangowc ];
+  services.displayManager.sessionPackages = [
+    (pkgs.runCommand "mango-session" {
+      passthru.providedSessions = [ "mango" ];
+    } ''
+      mkdir -p $out/share/wayland-sessions
+      cat > $out/share/wayland-sessions/mango.desktop <<'EOF'
+[Desktop Entry]
+Encoding=UTF-8
+Name=Mango
+Comment=MangoWC tiling compositor
+Exec=mango -s /home/jeroen/.config/mango/autostart.sh
+Icon=mango
+Type=Application
+DesktopNames=mango
+EOF
+    '')
+  ];
 
   networking.extraHosts = ''
     192.168.122.20 sel_site.local
