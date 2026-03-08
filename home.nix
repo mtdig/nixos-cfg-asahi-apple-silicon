@@ -37,6 +37,24 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
+    cursorTheme = {
+      name = "breeze_cursors";
+      size = 24;
+    };
+    font = {
+      name = "Noto Sans";
+      size = 10;
+    };
+    gtk2.extraConfig = ''
+      gtk-enable-animations=1
+      gtk-primary-button-warps-slider=1
+      gtk-toolbar-style=3
+      gtk-menu-images=1
+      gtk-button-images=1
+      gtk-cursor-blink-time=1000
+      gtk-cursor-blink=1
+      gtk-sound-theme-name="ocean"
+    '';
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -44,7 +62,7 @@
   programs.bash = {
     enable = true;
     initExtra = ''
-      fastfetch
+      # fastfetch
       if ! command -v rustc &>/dev/null; then
         echo -e "\e[1;31m⚠ Rust is not installed! Run: rustup toolchain install stable\e[0m"
       fi
