@@ -77,6 +77,12 @@
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
 
+  # Hyprland
+  programs.hyprland.enable = true;
+
+  # MangoWC — session entry for SDDM login screen
+  services.displayManager.sessionPackages = [ pkgs.mangowc ];
+
   networking.extraHosts = ''
     192.168.122.20 sel_site.local
     192.168.122.40 opdracht3.sel.edu

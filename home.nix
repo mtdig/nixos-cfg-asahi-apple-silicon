@@ -15,6 +15,9 @@
     ./user/kde-shortcuts.nix
     ./user/conky.nix
     ./user/rofi.nix
+    ./user/hyprland.nix
+    ./user/waybar.nix
+    ./user/ironbar.nix
   ];
 
   home.username = "jeroen";
@@ -23,6 +26,17 @@
 
   home.sessionVariables = {
     VBOX_PROGRAM_PATH = "/run/wrappers/bin";
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze-Dark";
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;

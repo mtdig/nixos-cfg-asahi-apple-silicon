@@ -3,7 +3,13 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package = pkgs.vscode.override {
+      commandLineArgs = [
+        "--ozone-platform-hint=auto"
+        "--enable-features=WaylandWindowDecorations"
+        "--enable-wayland-ime"
+      ];
+    };
     profiles.default.userSettings = {
       "git.confirmSync" = false;
       "git.autofetch" = true;
