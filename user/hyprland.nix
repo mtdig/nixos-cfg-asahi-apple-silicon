@@ -88,6 +88,7 @@
         touchpad = {
           natural_scroll = true;
           tap-to-click = true;
+          clickfinger_behavior = true;
           drag_lock = true;
           scroll_factor = 0.7;
         };

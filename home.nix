@@ -97,6 +97,7 @@
       md = "glow -w 120 -p ";
       vmctl = "virsh -c qemu:///system ";
       rcp = "rsync -rlvz --progress ";
+      code = "code -n ";
     };
   };
 

@@ -11,6 +11,7 @@
     gcc
     gnumake
     go
+    godot
     jdk21
     just
     lldb # LLVM debugger
@@ -26,6 +27,7 @@
     zig
 
     # cli tools
+    azure-cli
     bat
     curl
     pandoc
