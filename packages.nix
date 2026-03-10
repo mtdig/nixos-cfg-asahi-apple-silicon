@@ -12,6 +12,7 @@
     gnumake
     go
     godot
+    gparted
     jdk21
     just
     lldb # LLVM debugger
@@ -21,7 +22,7 @@
     python313Packages.virtualenv
     rustup
     universal-ctags
-    bear # compile_commands.json generator
+    #bear # compile_commands.json generator
     rsync
     xxd
     zig
@@ -40,7 +41,9 @@
     jq
     navi
     ncdu
-    nitch
+    parted
+    psmisc
+    #nitch
     rage
     ripgrep
     ruff
@@ -54,9 +57,8 @@
     zip
 
     # productivity
-    pkgs-duckdb-144.duckdb
-    dbeaver-bin # naoa
-    # discord # not available on aarch64
+    #pkgs-duckdb-144.duckdb
+    #dbeaver-bin # naoa
     ghostty
     gimp
     # google-chrome
@@ -65,9 +67,8 @@
     kicad
     # mysql-workbench
     obs-studio
-    rpi-imager
+    #rpi-imager
     scenebuilder
-    # slack
     thunderbird
     vlc
     wl-clipboard

@@ -22,6 +22,25 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
+  boot.kernelPatches = [
+    {
+      name = "remove-nova-core";
+      patch = null;
+      structuredExtraConfig = {
+        NOVA_CORE = lib.mkForce lib.kernel.unset;
+      };
+    }
+  ];
+
+  fileSystems."/nix" = {
+    device = "/dev/nvme0n1p3";
+    fsType = "ext4";
+  };
+  #  fileSystems."/var/tmp" = {
+  #    device = "/dev/nvme0n1p3";
+  #    fsType = "ext4";
+  #  };
+
   # networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -136,6 +155,7 @@
   hardware.asahi.peripheralFirmwareDirectory = "/boot/asahi";
   nix.settings.pure-eval = false;
   nix.settings.extra-sandbox-paths = [ "/boot" ];
+  # nix.settings.build-dir = "/var/tmp";
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
