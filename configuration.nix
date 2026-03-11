@@ -131,6 +131,13 @@
     enable = true;
     settings.General.EnableNetworkConfiguration = true;
   };
+
+  # Zram swap — compressed in-memory swap
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  };
+
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
