@@ -151,16 +151,16 @@
 
     # win
     # freerdp
-    # powershell
-    # remmina
+    powershell
+    remmina
 
     # exoticness
-    # (pkgs.callPackage ./pkgs/visual-paradigm.nix { })
+    (pkgs.callPackage ./pkgs/visual-paradigm.nix { })
     # (pkgs.callPackage ./pkgs/packet-tracer.nix { })
 
     # 3d printing
     # (pkgs.callPackage ./pkgs/bambu-studio-appimage.nix { })
-    # openscad-unstable
+    (openscad-unstable.overrideAttrs { doCheck = false; })
 
     # user
     nerd-fonts.jetbrains-mono
