@@ -76,6 +76,15 @@
         format = "{percentage}%";
       }
       {
+        type = "script";
+        name = "brightness";
+        cmd = "echo \"󰃠 $(brightnessctl -m | cut -d, -f4)\"";
+        mode = "poll";
+        interval = 3000;
+        on_click_left = "brightnessctl set +5%";
+        on_click_right = "brightnessctl set 5%-";
+      }
+      {
         type = "tray";
       }
       {

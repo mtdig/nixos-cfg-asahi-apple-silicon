@@ -26,7 +26,7 @@
     {
       name = "remove-nova-core";
       patch = null;
-      structuredExtraConfig = {
+      structuredExtraConfig = with lib.kernel; {
         NOVA_CORE = lib.mkForce lib.kernel.unset;
       };
     }

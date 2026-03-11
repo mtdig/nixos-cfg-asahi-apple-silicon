@@ -57,7 +57,7 @@
     zip
 
     # productivity
-    #pkgs-duckdb-144.duckdb
+    pkgs-duckdb-144.duckdb
     #dbeaver-bin # naoa
     ghostty
     gimp
