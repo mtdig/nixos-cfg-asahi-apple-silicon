@@ -130,6 +130,11 @@
     nmap
     tcpdump
 
+    # gns3
+    gns3-server
+    gns3-gui
+    qemu
+
     # cloud
     ansible
     awscli2

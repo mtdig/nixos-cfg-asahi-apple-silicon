@@ -164,6 +164,15 @@
   nix.settings.extra-sandbox-paths = [ "/boot" ];
   # nix.settings.build-dir = "/var/tmp";
 
+  security.wrappers = {
+    ubridge = {
+      source = "${pkgs.ubridge}/bin/ubridge";
+      capabilities = "cap_net_admin,cap_net_raw=ep";
+      owner = "root";
+      group = "root";
+    };
+  };
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
