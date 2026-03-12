@@ -34,6 +34,7 @@
     pandoc
     fastfetch
     fzf
+    gh
     git
     git-cliff
     gitui
@@ -63,7 +64,9 @@
     gimp
     # google-chrome
     home-manager
-    jetbrains.idea
+    (jetbrains.idea.override {
+      vmopts = "-Dawt.toolkit.name=WLToolkit";
+    })
     kicad
     # mysql-workbench
     obs-studio
