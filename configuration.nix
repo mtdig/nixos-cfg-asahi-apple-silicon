@@ -48,7 +48,21 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
-
+  boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+  nix.settings.extra-platforms = [ "x86_64-linux" ];
+  boot.binfmt.registrations."x86_64-linux".fixBinary = true;
+  # boot.binfmt.preferStaticEmulators = true;
+  systemd.services.qemu-binfmt = {
+    description = "Register QEMU binfmt handlers via tonistiigi/binfmt";
+    after = [ "docker.service" ];
+    requires = [ "docker.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.docker}/bin/docker run --rm --privileged tonistiigi/binfmt --install amd64";
+      RemainAfterExit = true;
+    };
+  };
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   virtualisation.docker.enable = true;

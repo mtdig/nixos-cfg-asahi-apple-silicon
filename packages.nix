@@ -72,7 +72,6 @@
     obs-studio
     #rpi-imager
     scenebuilder
-    thunderbird
     vlc
     wl-clipboard
     rofi

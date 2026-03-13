@@ -47,11 +47,11 @@
       {
         type = "sys_info";
         format = [
-          "  {cpu_percent@mean}%"
-          "  {memory_used#Gi:.1}Gi / {memory_total#Gi:.1}Gi"
+          "󰍛 {cpu_percent@mean}%"
+          "󰘚 {memory_used#Gi:.1}Gi / {memory_total#Gi:.1}Gi"
           "󰋊 {disk_used@/#Gi:.0}Gi / {disk_total@/#Gi:.0}Gi"
           "󱄅 {disk_used@/nix#Gi:.0}Gi / {disk_total@/nix#Gi:.0}Gi"
-          " {temp_c@max:.0}°C"
+          "󰔏 {temp_c@max:.0}°C"
         ];
         interval = {
           cpu = 3;
