@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   programs.nixvim = {
@@ -213,6 +213,10 @@
           # java
           jdtls = {
             enable = true;
+            cmd = [
+              "jdtls"
+              "-data" "${config.home.homeDirectory}/.cache/jdtls/workspace"
+            ];
           };
 
           # docker

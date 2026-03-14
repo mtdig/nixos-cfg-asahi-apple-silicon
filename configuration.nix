@@ -130,7 +130,7 @@
         Encoding=UTF-8
         Name=Mango
         Comment=MangoWC tiling compositor
-        Exec=mango -s /home/jeroen/.config/mango/autostart.sh
+        Exec=mango -s ${config.users.users.jeroen.home}/.config/mango/autostart.sh
         Icon=mango
         Type=Application
         DesktopNames=mango

@@ -75,14 +75,14 @@
       bind '"\e[A": history-search-backward'
       bind '"\e[B": history-search-forward'
       PROMPT_COMMAND="history -a; history -n; ''${PROMPT_COMMAND}"
-      export PATH="/home/jeroen/local/bin:$PATH";
+      export PATH="$HOME/local/bin:$PATH";
       nx() {
         nix-shell -p "$1" --run "''${2:-$1}"
       }
 
     '';
     shellAliases = {
-      hconf = "nvim /home/jeroen/.config/home-manager/home.nix";
+      hconf = "nvim $HOME/.config/home-manager/home.nix";
       gconf = "sudo -E nvim /etc/nixos/configuration.nix";
       gpac = "sudo -E nvim /etc/nixos/packages.nix";
       hswitch = "home-manager switch --flake /etc/nixos#\${USER}";

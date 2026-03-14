@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   home.file.".config/conky/conky.conf".text = ''
@@ -111,7 +111,7 @@
     [Desktop Entry]
     Type=Application
     Name=Conky
-    Exec=${pkgs.conky}/bin/conky -c /home/jeroen/.config/conky/conky.conf --daemonize --pause=3
+    Exec=${pkgs.conky}/bin/conky -c ${config.home.homeDirectory}/.config/conky/conky.conf --daemonize --pause=3
     StartupNotify=false
     X-KDE-autostart-phase=2
   '';
