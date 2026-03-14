@@ -25,6 +25,10 @@
   home.homeDirectory = "/home/jeroen";
   home.stateVersion = "25.11";
 
+  home.sessionPath = [
+    "${pkgs.pkgsCross.musl64.stdenv.cc}/bin"
+  ];
+
   home.sessionVariables = {
     VBOX_PROGRAM_PATH = "/run/wrappers/bin";
   };

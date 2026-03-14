@@ -7,8 +7,10 @@
 
 let
   rustToolchain = pkgs.rust-bin.stable.latest.default.override {
+    extensions = [ "rust-src" ];
     targets = [
       "x86_64-unknown-linux-gnu"
+      "x86_64-unknown-linux-musl"
       "aarch64-unknown-linux-gnu"
       "aarch64-unknown-linux-musl"
       "riscv32imc-unknown-none-elf" # ESP32-C3

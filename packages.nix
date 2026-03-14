@@ -5,6 +5,7 @@
     # dev
     clang
     clang-tools # clangd, clang-format, clang-tidy
+    pkgsCross.musl64.stdenv.cc
     cmake
     cmake-format
     file
@@ -83,6 +84,7 @@
     mangowc # wayland compositor
     dunst # notifications
     hyprpaper # wallpaper
+    waypaper
     hyprlock # screen lock
     hypridle # idle management
     hyprshot # screenshot tool
