@@ -1,0 +1,28 @@
+[2m2026-03-14T13:04:16.407827Z[0m [32m INFO[0m [2mironbar[0m[2m:[0m [2m147:[0m Ironbar version 0.17.1
+[2m2026-03-14T13:04:16.407879Z[0m [32m INFO[0m [2mironbar[0m[2m:[0m [2m148:[0m Starting application
+[2m2026-03-14T13:04:16.474527Z[0m [33m WARN[0m [2mironbar::ipc::server[0m[2m:[0m [2m33:[0m Socket already exists. Did Ironbar exit abruptly?
+[2m2026-03-14T13:04:16.474559Z[0m [33m WARN[0m [2mironbar::ipc::server[0m[2m:[0m [2m34:[0m Attempting IPC shutdown to allow binding to address
+[2m2026-03-14T13:04:16.474781Z[0m [32m INFO[0m [2mironbar::ipc::server[0m[2m:[0m [2m39:[0m Starting IPC on /run/user/1000/ironbar-ipc.sock
+[2m2026-03-14T13:04:16.475605Z[0m [32m INFO[0m [2mironbar::bar[0m[2m:[0m [2m121:[0m Initializing bar 'bar-10' on 'eDP-1'
+[2m2026-03-14T13:04:16.477074Z[0m [32m INFO[0m [2mironbar::clients::compositor::hyprland[0m[2m:[0m [2m61:[0m Starting Hyprland event listener
+[2m2026-03-14T13:04:16.491974Z[0m [32m INFO[0m [2mironbar::clients::volume[0m[2m:[0m [2m169:[0m connected to server
+[2m2026-03-14T13:04:16.498891Z[0m [32m INFO[0m [2msystem_tray::dbus::status_notifier_watcher[0m[2m:[0m [2m46:[0m new host: :1.115
+[2m2026-03-14T13:04:16.499077Z[0m [32m INFO[0m [2msystem_tray::dbus::status_notifier_watcher[0m[2m:[0m [2m141:[0m new item: :1.5/org/ayatana/NotificationItem/nm_applet
+[2m2026-03-14T13:04:16.637765Z[0m [33m WARN[0m [2mGTK[0m[2m:[0m [2m116:[0m [LIBDBUSMENU-GLIB] Unable to get session bus: Operation was cancelled
+[2m2026-03-14T13:04:18.339164Z[0m [32m INFO[0m [2msystem_tray::dbus::status_notifier_watcher[0m[2m:[0m [2m141:[0m new item: :1.116/org/blueman/sni
+[2m2026-03-14T13:04:18.361541Z[0m [33m WARN[0m [2mGTK[0m[2m:[0m [2m116:[0m [LIBDBUSMENU-GLIB] Unable to get session bus: Operation was cancelled
+[2m2026-03-14T13:06:34.116160Z[0m [32m INFO[0m [2mironbar[0m[2m:[0m [2m147:[0m Ironbar version 0.17.1
+[2m2026-03-14T13:06:34.116310Z[0m [32m INFO[0m [2mironbar[0m[2m:[0m [2m148:[0m Starting application
+[2m2026-03-14T13:06:34.146422Z[0m [33m WARN[0m [2mironbar::ipc::server[0m[2m:[0m [2m33:[0m Socket already exists. Did Ironbar exit abruptly?
+[2m2026-03-14T13:06:34.146450Z[0m [33m WARN[0m [2mironbar::ipc::server[0m[2m:[0m [2m34:[0m Attempting IPC shutdown to allow binding to address
+[2m2026-03-14T13:06:34.146481Z[0m [32m INFO[0m [2mironbar::ipc::server[0m[2m:[0m [2m39:[0m Starting IPC on /run/user/1000/ironbar-ipc.sock
+[2m2026-03-14T13:06:34.147265Z[0m [32m INFO[0m [2mironbar::bar[0m[2m:[0m [2m121:[0m Initializing bar 'bar-10' on 'eDP-1'
+[2m2026-03-14T13:06:34.148675Z[0m [32m INFO[0m [2mironbar::clients::compositor::hyprland[0m[2m:[0m [2m61:[0m Starting Hyprland event listener
+[2m2026-03-14T13:06:34.158654Z[0m [32m INFO[0m [2mironbar::clients::volume[0m[2m:[0m [2m169:[0m connected to server
+[2m2026-03-14T13:06:34.159381Z[0m [32m INFO[0m [2msystem_tray::dbus::status_notifier_watcher[0m[2m:[0m [2m141:[0m new item: :1.5/org/ayatana/NotificationItem/nm_applet
+[2m2026-03-14T13:06:34.159610Z[0m [32m INFO[0m [2msystem_tray::dbus::status_notifier_watcher[0m[2m:[0m [2m46:[0m new host: :1.122
+[2m2026-03-14T13:06:34.238128Z[0m [33m WARN[0m [2mGTK[0m[2m:[0m [2m116:[0m [LIBDBUSMENU-GLIB] Unable to get session bus: Operation was cancelled
+[2m2026-03-14T13:06:35.321646Z[0m [32m INFO[0m [2msystem_tray::dbus::status_notifier_watcher[0m[2m:[0m [2m141:[0m new item: :1.123/org/blueman/sni
+[2m2026-03-14T13:06:35.333424Z[0m [33m WARN[0m [2mGTK[0m[2m:[0m [2m116:[0m [LIBDBUSMENU-GLIB] Unable to get session bus: Operation was cancelled
+[2m2026-03-14T13:06:57.101101Z[0m [33m WARN[0m [2msystem_tray::client[0m[2m:[0m [2m469:[0m org.freedesktop.DBus.Error.InvalidArgs: No such property “IconPixmap”
+[2m2026-03-14T13:07:03.099183Z[0m [33m WARN[0m [2msystem_tray::client[0m[2m:[0m [2m469:[0m org.freedesktop.DBus.Error.InvalidArgs: No such property “IconPixmap”

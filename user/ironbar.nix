@@ -61,6 +61,13 @@
         };
       }
       {
+        type = "script";
+        name = "zram";
+        cmd = ''awk '/zram/ { used+=$4; total+=$3 } END { printf "󰁟 %.1fGi / %.1fGi", used/1048576, total/1048576 }' /proc/swaps'';
+        mode = "poll";
+        interval = 2000;
+      }
+      {
         type = "volume";
         format = "{icon} {percentage}%";
         max_volume = 150;
@@ -81,7 +88,7 @@
         name = "brightness";
         cmd = "echo \"󰃠 $(brightnessctl -m | cut -d, -f4)\"";
         mode = "poll";
-        interval = 3000;
+        interval = 2000;
         on_click_left = "brightnessctl set +5%";
         on_click_right = "brightnessctl set 5%-";
       }
