@@ -21,6 +21,7 @@
     ninja
     python313
     python313Packages.virtualenv
+    opencode
     rustup
     universal-ctags
     #bear # compile_commands.json generator
@@ -60,7 +61,7 @@
 
     # productivity
     pkgs-duckdb-144.duckdb
-    #dbeaver-bin # naoa
+    dbeaver-bin # naoa
     ghostty
     gimp
     # google-chrome
@@ -69,6 +70,7 @@
       vmopts = "-Dawt.toolkit.name=WLToolkit";
     })
     kicad
+    kdePackages.krdc
     # mysql-workbench
     obs-studio
     #rpi-imager
@@ -77,6 +79,7 @@
     wl-clipboard
     rofi
     conky
+    pgadmin4
 
     # hyprland ecosystem
     ironbar # status bar (hyprland/mangowc)

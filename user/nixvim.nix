@@ -367,6 +367,94 @@
       flash.enable = true;
     };
 
+    # ── OpenCode AI integration ────────────────────────────────────
+    extraPlugins = [
+      pkgs.vimPlugins.opencode-nvim
+    ];
+
+    extraConfigLua = ''
+      vim.o.autoread = true
+
+      ---@type opencode.Opts
+      vim.g.opencode_opts = {
+        lsp = {
+          enabled = true,
+        },
+      }
+
+      -- Custom terminal provider for opencode (no snacks/tmux needed)
+      local opencode_buf = nil
+      local opencode_cmd = "opencode --port"
+
+      local function get_win()
+        if opencode_buf and vim.api.nvim_buf_is_valid(opencode_buf) then
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            if vim.api.nvim_win_get_buf(win) == opencode_buf then
+              return win
+            end
+          end
+        end
+        return nil
+      end
+
+      local function buf_alive()
+        return opencode_buf and vim.api.nvim_buf_is_valid(opencode_buf)
+      end
+
+      local function open_split()
+        vim.cmd("botright vsplit")
+        local win = vim.api.nvim_get_current_win()
+        vim.api.nvim_win_set_buf(win, opencode_buf)
+        vim.cmd("wincmd p")
+        return win
+      end
+
+      local provider = {
+        name = "terminal",
+        cmd = opencode_cmd,
+        start = function(self)
+          if buf_alive() then return end
+          vim.cmd("botright vnew")
+          vim.fn.termopen(self.cmd)
+          opencode_buf = vim.api.nvim_get_current_buf()
+          vim.cmd("wincmd p")
+        end,
+        stop = function(_)
+          if buf_alive() then
+            vim.api.nvim_buf_delete(opencode_buf, { force = true })
+          end
+          opencode_buf = nil
+        end,
+        toggle = function(self)
+          local win = get_win()
+          if win then
+            vim.api.nvim_win_close(win, true)
+          elseif buf_alive() then
+            open_split()
+          else
+            self:start()
+          end
+        end,
+        show = function(self)
+          if not get_win() and buf_alive() then
+            open_split()
+          end
+        end,
+      }
+
+      require("opencode.config").provider = provider
+      require("opencode.config").opts.provider = provider
+
+      -- OpenCode keymaps
+      vim.keymap.set({ "n", "x" }, "<leader>oa", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask OpenCode" })
+      vim.keymap.set({ "n", "x" }, "<leader>os", function() require("opencode").select() end, { desc = "OpenCode select action" })
+      vim.keymap.set({ "n", "t" }, "<leader>oo", function() require("opencode").toggle() end, { desc = "Toggle OpenCode" })
+      vim.keymap.set({ "n", "x" }, "<leader>or", function() require("opencode").prompt("review") end, { desc = "OpenCode review" })
+      vim.keymap.set({ "n", "x" }, "<leader>oe", function() require("opencode").prompt("explain") end, { desc = "OpenCode explain" })
+      vim.keymap.set({ "n", "x" }, "<leader>of", function() require("opencode").prompt("fix") end, { desc = "OpenCode fix" })
+      vim.keymap.set({ "n", "x" }, "<leader>ot", function() require("opencode").prompt("test") end, { desc = "OpenCode test" })
+    '';
+
     # ── Extra packages (formatters/linters not in nixpkgs LSP) ─────
     extraPackages = with pkgs; [
       nixfmt-rfc-style
