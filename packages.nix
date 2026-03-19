@@ -12,7 +12,22 @@
     gcc
     gnumake
     go
-    godot
+    (symlinkJoin {
+      name = "godot";
+      paths = [ godot ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/godot4 \
+          --add-flags "--display-driver wayland"
+
+        # Fix .desktop file to use wrapped binary
+        for f in $out/share/applications/*.desktop; do
+          cp --remove-destination "$(readlink -f "$f")" "$f"
+          substituteInPlace "$f" \
+            --replace-fail "${godot}/bin/" "$out/bin/"
+        done
+      '';
+    })
     gparted
     jdk21
     just
@@ -60,6 +75,7 @@
     zip
 
     # productivity
+    thunderbird
     pkgs-duckdb-144.duckdb
     dbeaver-bin # naoa
     ghostty
@@ -71,6 +87,7 @@
     })
     kicad
     kdePackages.krdc
+    libreoffice
     # mysql-workbench
     obs-studio
     #rpi-imager
