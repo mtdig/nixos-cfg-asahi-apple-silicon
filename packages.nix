@@ -164,7 +164,6 @@
     awscli2
     azure-cli # az
     google-cloud-sdk # gcloud
-    helm
     ibmcloud-cli
     kubectl
     kubelogin # azure aks authentication

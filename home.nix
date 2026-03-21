@@ -66,6 +66,7 @@
 
   programs.bash = {
     enable = true;
+
     initExtra = ''
       # fastfetch
       if ! command -v rustc &>/dev/null; then
