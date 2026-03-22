@@ -74,3 +74,7 @@ I use Google Chrome. Don't judge. Ok, judge, whatever ...
 There is no google chrome for arm64 linux. Intentionally, from what I read. There's chromium, the open source chrome, but that doesn't let you sync with google anymore. Ok, there's [this workaround](https://blog.jeroenflvr.dev/blog/chromium-google-sync/), if you have a google cloud account.
 
 personal reminder: when will you finally go back to firefox? After all, Mozilla is where Rust was born.
+
+### gekbench 6 scores
+
+[nixos/asahi](https://browser.geekbench.com/v6/cpu/17212801)
