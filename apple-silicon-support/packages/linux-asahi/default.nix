@@ -25,7 +25,7 @@ let
       src = fetchFromGitHub {
         owner = "AsahiLinux";
         repo = "linux";
-        rev = "61b6e714dd19b7bee1c0e6ec4234199e640c2932"; # fairydust branch (USB-C display)
+        rev = "61b6e714dd19b7bee1c0e6ec4234199e640c2932"; # Awesome fairydust branch (USB-C display)
         hash = "sha256-5eAgJTKcRdjEFzHDSrh/XReaT6Db9YN2RN1SwOs28NE=";
       };
 
