@@ -7,7 +7,10 @@
     settings = {
 
       # ── Monitor ──
-      monitor = [ "eDP-1, 2560x1600@60, 0x0, 1.6" ];
+      monitor = [
+        "eDP-1, 2560x1600@60, 0x0, 1.6"
+        "DP-1, 3440x1440@60, -920x-1440, 1"
+      ];
 
       # ── Environment ──
       env = [
