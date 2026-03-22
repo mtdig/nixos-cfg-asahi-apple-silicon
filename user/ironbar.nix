@@ -118,7 +118,7 @@
   home.file.".config/ironbar/style.css".text = ''
     * {
       font-family: "JetBrainsMono Nerd Font";
-      font-size: 13px;
+      font-size: 11px;
       color: #e8f0ff;
     }
 

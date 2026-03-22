@@ -59,6 +59,7 @@
     jq
     navi
     ncdu
+    openssl
     parted
     psmisc
     #nitch
