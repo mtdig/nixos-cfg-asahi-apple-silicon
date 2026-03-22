@@ -18,15 +18,15 @@ let
       inherit stdenv lib;
 
       pname = "linux-asahi";
-      version = "6.17.7";
+      version = "6.18.10";
       modDirVersion = version;
-      extraMeta.branch = "6.17";
+      extraMeta.branch = "6.18";
 
       src = fetchFromGitHub {
         owner = "AsahiLinux";
         repo = "linux";
-        tag = "asahi-6.17.7-2";
-        hash = "sha256-wyuHcp9rEpOtNb8aRPkfX57XdcmpitklM4oew/YMRio=";
+        rev = "61b6e714dd19b7bee1c0e6ec4234199e640c2932"; # fairydust branch (USB-C display)
+        hash = "sha256-5eAgJTKcRdjEFzHDSrh/XReaT6Db9YN2RN1SwOs28NE=";
       };
 
       kernelPatches = [
