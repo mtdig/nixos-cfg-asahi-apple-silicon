@@ -16,6 +16,7 @@
       "github.copilot.nextEditSuggestions.enabled" = true;
       "gitlens.ai.model" = "vscode";
       "gitlens.ai.vscode.model" = "copilot:gpt-4.1";
+      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Noto Color Emoji', monospace";
       "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
       "zig.zls.enabled"= "on";
     };
