@@ -144,6 +144,7 @@
     51.103.90.12 opdracht3.sel.edu
     10.100.0.200 portainer.k8s.local
     10.100.0.200 vaultwarden.k8s.local
+    192.168.122.20 vaultwarden.opdracht5.local portainer.opdracht5.local
   '';
 
   networking.wireless.iwd = {

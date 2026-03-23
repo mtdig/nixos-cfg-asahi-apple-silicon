@@ -64,6 +64,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  dconf.settings = {
+    "org/blueman/general" = {
+      plugin-list = [ "!ConnectionNotifier" ];
+    };
+  };
+
   programs.bash = {
     enable = true;
 
@@ -79,6 +85,32 @@
       export PATH="$HOME/local/bin:$PATH";
       nx() {
         nix-shell -p "$1" --run "''${2:-$1}"
+      }
+      # Create a new KVM VM (arm64, VNC, UEFI) — works on Wayland
+      # Usage: newvm <name> <disk-size-GB> <iso-path> [memory-MB] [vcpus] [os-variant]
+      newvm() {
+        local name="$1" disk="''${2:-20}" iso="$3"
+        local mem="''${4:-2048}" cpus="''${5:-2}" os="''${6:-generic}"
+        if [ -z "$name" ] || [ -z "$iso" ]; then
+          echo "Usage: newvm <name> <disk-GB> <iso-path> [mem-MB] [vcpus] [os-variant]"
+          echo "  e.g: newvm debian13 20 ~/Downloads/debian-13-arm64.iso 4096 4 debian12"
+          echo "Find os-variant: virt-install --osinfo list | grep <os>"
+          return 1
+        fi
+        sudo virt-install \
+          --name "$name" \
+          --memory "$mem" \
+          --vcpus "$cpus" \
+          --cpu host-passthrough \
+          --os-variant "$os" \
+          --disk "size=$disk,bus=virtio,format=qcow2" \
+          --cdrom "$iso" \
+          --network network=default \
+          --graphics vnc,listen=127.0.0.1 \
+          --video virtio \
+          --boot uefi \
+          --noautoconsole && \
+        echo "VM '$name' created! Connect with: vmview $name"
       }
 
     '';
@@ -101,6 +133,7 @@
       gc = "git commit -am ";
       md = "glow -w 120 -p ";
       vmctl = "virsh -c qemu:///system ";
+      vmview = "virt-viewer --connect qemu:///system ";
       rcp = "rsync -rlvz --progress ";
       code = "code -n ";
       scale = "hyprctl keyword monitor eDP-1,2560x1600@60,0x0,";
