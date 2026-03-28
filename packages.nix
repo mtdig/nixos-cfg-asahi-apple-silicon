@@ -194,5 +194,8 @@
     # user
     nerd-fonts.jetbrains-mono
 
+    # gaming
+    luanti-client
+
   ];
 }

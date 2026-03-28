@@ -152,6 +152,8 @@
         "$mod, Space, exec, $menu"
         "$mod, B, exec, $browser"
         "$mod, E, exec, $fileManager"
+        "$mod, G, exec, ghostty"
+        "$mod, C, exec, code"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         # ── Window management ──

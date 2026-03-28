@@ -19,6 +19,7 @@
     ./user/waybar.nix
     ./user/ironbar.nix
     ./user/mangowc.nix
+    ./user/rbw.nix
   ];
 
   home.username = "jeroen";
@@ -137,6 +138,7 @@
       rcp = "rsync -rlvz --progress ";
       code = "code -n ";
       scale = "hyprctl keyword monitor eDP-1,2560x1600@60,0x0,";
+      k = "kubectl ";
     };
   };
 
