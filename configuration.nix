@@ -41,6 +41,8 @@
   #    fsType = "ext4";
   #  };
 
+  documentation.dev.enable = true;
+
   # networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.

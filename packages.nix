@@ -32,6 +32,7 @@
     jdk21
     just
     lldb # LLVM debugger
+    man-pages
     maven
     ninja
     python313
