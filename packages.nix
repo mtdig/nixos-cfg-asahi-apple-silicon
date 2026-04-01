@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    audit
     # dev
     clang
     clang-tools # clangd, clang-format, clang-tidy
