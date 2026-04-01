@@ -275,8 +275,8 @@
   home.file.".config/hypr/hyprpaper.conf".text = ''
     #preload = /run/current-system/sw/share/wallpapers/Next/contents/images/5120x2880.png
     #wallpaper = , /run/current-system/sw/share/wallpapers/Next/contents/images/5120x2880.png
-    preload = /home/jeroen/Pictures/nixos_bg.webp
-    wallpaper = , /home/jeroen/Pictures/nixos_bg.webp
+    preload = /etc/nixos/img/nixos_bg.webp
+    wallpaper = , /etc/nixos/img/nixos_bg.webp
     splash = false
   '';
 
@@ -285,7 +285,7 @@
     background {
         monitor =
         # path = /run/current-system/sw/share/wallpapers/Next/contents/images/5120x2880.png
-        path = /home/jeroen/Pictures/nixos_bg.webp
+        path = /etc/nixos/img/nixos_bg.webp
         blur_passes = 3
         blur_size = 6
         contrast = 0.8

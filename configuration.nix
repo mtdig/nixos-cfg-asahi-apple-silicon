@@ -115,6 +115,18 @@
   services.xserver.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.theme = "breeze";
+  services.displayManager.sddm.extraPackages = [ pkgs.kdePackages.breeze ];
+  services.displayManager.sddm.settings.Theme = {
+    ThemeDir = "/run/current-system/sw/share/sddm/themes";
+  };
+
+  # SDDM Breeze theme — use our wallpaper
+  environment.etc."sddm/themes/breeze/theme.conf.user".text = ''
+    [General]
+    background=${./img/nixos_bg.webp}
+  '';
 
   # Hyprland
   programs.hyprland.enable = true;
