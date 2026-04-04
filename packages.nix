@@ -71,6 +71,7 @@
     ripgrep # Fast recursive grep (rg)
     ruff # Fast Python linter & formatter
     starship # Cross-shell prompt
+    sshpass
     tree # Directory listing in tree format
     unzip # ZIP archive extractor
     uv # Fast Python package installer (pip alternative)

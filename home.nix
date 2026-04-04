@@ -139,6 +139,7 @@
       code = "code -n ";
       scale = "hyprctl keyword monitor eDP-1,2560x1600@60,0x0,";
       k = "kubectl ";
+      v = "sudo virsh ";
     };
   };
 
