@@ -55,6 +55,7 @@
     pandoc # Universal document format converter
     fastfetch # Fast system info fetcher (neofetch alternative)
     fzf # Fuzzy finder for terminal
+    ffmpeg # duh
     gh # GitHub CLI
     git # Distributed version control
     git-cliff # Changelog generator from git history
@@ -98,7 +99,22 @@
     obs-studio # Screen recording & streaming
     #rpi-imager
     scenebuilder # JavaFX GUI designer for FXML
-    vlc # Media player
+    (symlinkJoin {
+      name = "vlc";
+      paths = [ vlc ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/vlc \
+          --set QT_QPA_PLATFORM wayland
+
+        # Fix .desktop file to use wrapped binary
+        for f in $out/share/applications/*.desktop; do
+          cp --remove-destination "$(readlink -f "$f")" "$f"
+          substituteInPlace "$f" \
+            --replace-fail "${vlc}/bin/" "$out/bin/"
+        done
+      '';
+    }) # Media player (wrapped for native Wayland)
     wl-clipboard # Wayland clipboard utilities (wl-copy, wl-paste)
     rofi # Application launcher / dmenu replacement
     conky # Desktop system monitor widget
@@ -118,6 +134,7 @@
     swappy # Screenshot annotation editor
     grim # Screenshot backend (Wayland)
     slurp # Region selection tool (Wayland)
+    wf-recorder # Screen recorder for Wayland (CLI)
     cliphist # Clipboard history manager
     brightnessctl # Backlight brightness control
     playerctl # MPRIS media player control
@@ -186,7 +203,22 @@
     # ── Windows / Remote Desktop ──
     # freerdp
     powershell # Microsoft PowerShell (cross-platform)
-    remmina # Remote desktop client (RDP, VNC, SSH, SPICE)
+    (symlinkJoin {
+      name = "remmina";
+      paths = [ remmina ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/remmina \
+          --set GDK_BACKEND wayland
+
+        # Fix .desktop file to use wrapped binary
+        for f in $out/share/applications/*.desktop; do
+          cp --remove-destination "$(readlink -f "$f")" "$f"
+          substituteInPlace "$f" \
+            --replace-fail "${remmina}/bin/" "$out/bin/"
+        done
+      '';
+    }) # Remote desktop client (RDP, VNC, SSH, SPICE) (wrapped for native Wayland)
 
     # ── Exotic / Custom Packages ──
     # (pkgs.callPackage ./pkgs/visual-paradigm.nix { })

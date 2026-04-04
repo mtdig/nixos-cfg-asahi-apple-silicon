@@ -98,6 +98,7 @@
           "$jobs"
           "$shlvl"
           "$status"
+          "\n"
           "$character"
         ];
         os = {
@@ -400,18 +401,18 @@
           map_symbol = true;
           pipestatus = false;
           style = "";
-          symbol = "[](fg:teal bg:pink)[  $status](fg:red bg:pink)";
-          success_symbol = "[](fg:teal bg:blue)";
-          not_executable_symbol = "[](fg:teal bg:pink)[  $common_meaning](fg:red bg:pink)";
-          not_found_symbol = "[](fg:teal bg:pink)[ 󰩌 $common_meaning](fg:red bg:pink)";
-          sigint_symbol = "[](fg:teal bg:pink)[  $signal_name](fg:red bg:pink)";
-          signal_symbol = "[](fg:teal bg:pink)[ ⚡ $signal_name](fg:red bg:pink)";
+          symbol = "[](fg:teal bg:pink)[  $status](fg:red bg:pink)[](fg:pink)";
+          success_symbol = "[](fg:teal)";
+          not_executable_symbol = "[](fg:teal bg:pink)[  $common_meaning](fg:red bg:pink)[](fg:pink)";
+          not_found_symbol = "[](fg:teal bg:pink)[ 󰩌 $common_meaning](fg:red bg:pink)[](fg:pink)";
+          sigint_symbol = "[](fg:teal bg:pink)[  $signal_name](fg:red bg:pink)[](fg:pink)";
+          signal_symbol = "[](fg:teal bg:pink)[ ⚡ $signal_name](fg:red bg:pink)[](fg:pink)";
         };
         character = {
           disabled = false;
           format = "$symbol";
-          error_symbol = "(fg:red bg:pink)[](fg:pink) ";
-          success_symbol = "[](fg:blue) ";
+          error_symbol = "[╰─](fg:overlay0)[❯](bold red) ";
+          success_symbol = "[╰─](fg:overlay0)[❯](bold green) ";
         };
       };
     };
