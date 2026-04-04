@@ -108,7 +108,7 @@
           --cdrom "$iso" \
           --network network=default \
           --graphics vnc,listen=127.0.0.1 \
-          --video virtio \
+          --video vga \
           --boot uefi \
           --noautoconsole && \
         echo "VM '$name' created! Connect with: vmview $name"

@@ -39,6 +39,7 @@
     python313
     python313Packages.virtualenv
     opencode
+    p7zip
     rustup
     universal-ctags
     #bear # compile_commands.json generator

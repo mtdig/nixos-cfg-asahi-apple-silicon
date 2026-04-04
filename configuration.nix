@@ -68,7 +68,33 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   virtualisation.docker.enable = true;
-
+  systemd.services.libvirtd-hostonly-network = {
+    description = "Define libvirt host-only network";
+    after = [ "libvirtd.service" ];
+    requires = [ "libvirtd.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "oneshot";
+    serviceConfig.RemainAfterExit = true;
+    script = ''
+      if ! ${pkgs.libvirt}/bin/virsh net-info hostonly &>/dev/null; then
+        cat > /tmp/hostonly.xml <<EOF
+        <network>
+          <name>hostonly</name>
+          <bridge name="virbr1"/>
+          <ip address="192.168.56.1" netmask="255.255.255.0">
+            <dhcp>
+              <range start="192.168.56.101" end="192.168.56.254"/>
+            </dhcp>
+          </ip>
+        </network>
+      EOF
+        ${pkgs.libvirt}/bin/virsh net-define /tmp/hostonly.xml
+        rm /tmp/hostonly.xml
+      fi
+      ${pkgs.libvirt}/bin/virsh net-start hostonly || true
+      ${pkgs.libvirt}/bin/virsh net-autostart hostonly
+    '';
+  };
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
