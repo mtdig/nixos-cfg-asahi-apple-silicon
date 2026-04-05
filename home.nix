@@ -87,6 +87,28 @@
       nx() {
         nix-shell -p "$1" --run "''${2:-$1}"
       }
+
+      get_maven_versions() {
+        local coord="''${1:?Usage: get_maven_versions <group:artifact> [version_prefix] [classifier_filter]}"
+        local version_prefix="''${2:-}"
+        local classifier="''${3:-}"
+
+        local group="''${coord%%:*}"
+        local artifact="''${coord##*:}"
+        local path="''${group//.//}/''${artifact}"
+        local base_url="https://repo1.maven.org/maven2/''${path}"
+
+        curl -s "''${base_url}/" \
+          | grep -oP "href=\"\K''${version_prefix}[0-9.][^/\"]*" \
+          | while read -r v; do
+              if [[ -n "''$classifier" ]]; then
+                curl -sf "''${base_url}/''${v}/" | grep -q "''$classifier" && echo "''$v"
+              else
+                echo "''$v"
+              fi
+            done
+      }
+
       # Create a new KVM VM (arm64, VNC, UEFI) — works on Wayland
       # Usage: newvm <name> <disk-size-GB> <iso-path> [memory-MB] [vcpus] [os-variant]
       newvm() {
@@ -140,6 +162,7 @@
       scale = "hyprctl keyword monitor eDP-1,2560x1600@60,0x0,";
       k = "kubectl ";
       v = "sudo virsh ";
+      gmv = "get_maven_versions ";
     };
   };
 
