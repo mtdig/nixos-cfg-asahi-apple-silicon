@@ -192,6 +192,13 @@
     settings.General.EnableNetworkConfiguration = true;
   };
 
+  # Ignore lid close — do nothing when MacBook lid is shut
+  services.logind = {
+    lidSwitch = "ignore";
+    lidSwitchExternalPower = "ignore";
+    lidSwitchDocked = "ignore";
+  };
+
   # Zram swap — compressed in-memory swap
   zramSwap = {
     enable = true;
@@ -295,6 +302,12 @@
   # };
 
   programs.firefox.enable = false;
+
+  # Java/JavaFX Wayland scaling fix — prevents blurry rendering at fractional scale
+  environment.variables = {
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    JAVA_TOOL_OPTIONS = "-Dglass.win.uiScale=1.0 -Dprism.allowhidpi=false -Dprism.forceGPU=false";
+  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).

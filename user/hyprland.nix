@@ -34,6 +34,11 @@
         "blueman-applet"
       ];
 
+      # ── XWayland ──
+      xwayland = {
+        force_zero_scaling = true;
+      };
+
       # ── General ──
       general = {
         gaps_in = 4;
