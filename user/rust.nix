@@ -13,6 +13,7 @@ let
       "x86_64-unknown-linux-musl"
       "aarch64-unknown-linux-gnu"
       "aarch64-unknown-linux-musl"
+      "x86_64-pc-windows-gnu" # Windows cross-compilation
       "riscv32imc-unknown-none-elf" # ESP32-C3
       "riscv32imac-unknown-none-elf" # ESP32-C6
     ];
@@ -26,6 +27,9 @@ in
 
     # aarch64 (Raspberry Pi) cross-compilation support
     pkgsCross.aarch64-multiplatform.stdenv.cc
+
+    # Windows (x86_64) cross-compilation support
+    #pkgsCross.mingwW64.stdenv.cc
 
     # ESP-IDF (C/C++ framework) - includes toolchains for C3 and C6
     pkgs-esp-idf.esp-idf-full
@@ -42,6 +46,9 @@ in
 
   # Set cross-linker for aarch64 Rust builds
   # environment.variables.CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER = "aarch64-unknown-linux-gnu-gcc";
+
+  # Set cross-linker for Windows x86_64 Rust builds
+  #environment.variables.CARGO_TARGET_X86_64_PC_WINDOWS_GNU_LINKER = "x86_64-w64-mingw32-gcc";
 
   # udev rules for Espressif USB JTAG/serial devices
   services.udev.extraRules = ''

@@ -137,6 +137,13 @@
         "size 800 500, class:^(pavucontrol)$"
         "size 800 500, class:^(blueman-manager)$"
         "opacity 0.9, class:^(ghostty)$"
+        "float, class:^(main.StartUp)$"
+        "center, class:^(main.StartUp)$"
+        "float, class:^(sel-checker)$"
+        "center, class:^(sel-checker)$"
+        "float, title:^(SELab Opdracht 6 Checker)$"
+        "size 800 600, title:^(SELab Opdracht 6 Checker)$"
+        "center, title:^(SELab Opdracht 6 Checker)$"
       ];
 
       # ── Key bindings ──
