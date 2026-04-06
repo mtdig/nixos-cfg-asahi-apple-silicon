@@ -154,6 +154,9 @@
       "$fileManager" = "dolphin";
 
       bind = [
+        # ── Scale cycling (Super+$) — cycle eDP-1 between 1, 1.25, 1.6 ──
+        ''$mod, dollar, exec, current=$(hyprctl monitors -j | ${pkgs.jq}/bin/jq -r '.[] | select(.name=="eDP-1") | .scale'); case "$current" in 1|1.00) hyprctl keyword monitor eDP-1,2560x1600@60,0x0,1.25 ;; 1.25) hyprctl keyword monitor eDP-1,2560x1600@60,0x0,1.6 ;; *) hyprctl keyword monitor eDP-1,2560x1600@60,0x0,1 ;; esac''
+
         # ── Window switching (Alt+Tab) ──
         "ALT, Tab, cyclenext,"
         "ALT SHIFT, Tab, cyclenext, prev"
