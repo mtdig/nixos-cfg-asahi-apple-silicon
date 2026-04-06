@@ -79,6 +79,7 @@
     wget # File downloader via HTTP/FTP
     wp-cli # WordPress command-line interface
     xq # XML/HTML processor (jq for XML)
+    zathura # document viewer
     zip # ZIP archive creator
 
     # ── Productivity ──
@@ -89,28 +90,45 @@
     gimp # Image editor (GNU Image Manipulation Program)
     # google-chrome
     home-manager # Nix-based user environment manager
-    (let idea = jetbrains.idea.override { vmopts = "-Dawt.toolkit.name=WLToolkit"; }; in
-    symlinkJoin {
-      name = "idea-ultimate";
-      paths = [ idea ];
-      buildInputs = [ makeWrapper ];
-      postBuild = ''
-        # Replace symlink with actual file so wrapProgram can wrap it
-        cp --remove-destination "$(readlink -f "$out/bin/idea")" "$out/bin/idea"
-        wrapProgram $out/bin/idea \
-          --prefix LD_LIBRARY_PATH : "${pkgs.lib.makeLibraryPath (with pkgs; [
-            libGL gtk3 glib xorg.libXtst xorg.libXxf86vm
-            cairo pango gdk-pixbuf freetype fontconfig
-          ])}"
+    (
+      let
+        idea = jetbrains.idea.override { vmopts = "-Dawt.toolkit.name=WLToolkit"; };
+      in
+      symlinkJoin {
+        name = "idea-ultimate";
+        paths = [ idea ];
+        buildInputs = [ makeWrapper ];
+        postBuild = ''
+          # Replace symlink with actual file so wrapProgram can wrap it
+          cp --remove-destination "$(readlink -f "$out/bin/idea")" "$out/bin/idea"
+          wrapProgram $out/bin/idea \
+            --prefix LD_LIBRARY_PATH : "${
+              pkgs.lib.makeLibraryPath (
+                with pkgs;
+                [
+                  libGL
+                  gtk3
+                  glib
+                  xorg.libXtst
+                  xorg.libXxf86vm
+                  cairo
+                  pango
+                  gdk-pixbuf
+                  freetype
+                  fontconfig
+                ]
+              )
+            }"
 
-        # Fix .desktop file to use wrapped binary
-        rm -rf $out/share/applications
-        mkdir -p $out/share/applications
-        for f in ${idea}/share/applications/*.desktop; do
-          sed "s|${idea}/bin/|$out/bin/|g" "$f" > "$out/share/applications/$(basename "$f")"
-        done
-      '';
-    }) # IntelliJ IDEA (with native Wayland toolkit + library paths)
+          # Fix .desktop file to use wrapped binary
+          rm -rf $out/share/applications
+          mkdir -p $out/share/applications
+          for f in ${idea}/share/applications/*.desktop; do
+            sed "s|${idea}/bin/|$out/bin/|g" "$f" > "$out/share/applications/$(basename "$f")"
+          done
+        '';
+      }
+    ) # IntelliJ IDEA (with native Wayland toolkit + library paths)
     kicad # Electronics schematic & PCB design
     kdePackages.krdc # KDE remote desktop client (RDP/VNC)
     libreoffice # Office suite (docs, sheets, presentations)
