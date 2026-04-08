@@ -138,9 +138,7 @@
         "size 800 500, class:^(blueman-manager)$"
         "opacity 0.9, class:^(ghostty)$"
         "float, class:^(main.StartUp)$"
-        "center, class:^(main.StartUp)$"
         "float, class:^(sel-checker)$"
-        "center, class:^(sel-checker)$"
         "float, title:^(SELab Opdracht 6 Checker)$"
         "size 800 600, title:^(SELab Opdracht 6 Checker)$"
         "center, title:^(SELab Opdracht 6 Checker)$"
@@ -156,6 +154,9 @@
       bind = [
         # ── Scale cycling (Super+$) — cycle eDP-1 between 1, 1.25, 1.6 ──
         ''$mod, dollar, exec, current=$(hyprctl monitors -j | ${pkgs.jq}/bin/jq -r '.[] | select(.name=="eDP-1") | .scale'); case "$current" in 1|1.00) hyprctl keyword monitor eDP-1,2560x1600@60,0x0,1.25 ;; 1.25) hyprctl keyword monitor eDP-1,2560x1600@60,0x0,1.6 ;; *) hyprctl keyword monitor eDP-1,2560x1600@60,0x0,1 ;; esac''
+
+        # ── Toggle XWayland force_zero_scaling (Super+Shift+$) ──
+        ''$mod SHIFT, dollar, exec, current=$(hyprctl getoption xwayland:force_zero_scaling -j | ${pkgs.jq}/bin/jq -r '.int'); if [ "$current" = "1" ]; then hyprctl keyword xwayland:force_zero_scaling false && notify-send "XWayland scaling" "Following compositor scale"; else hyprctl keyword xwayland:force_zero_scaling true && notify-send "XWayland scaling" "Force zero scaling (crisp)"; fi''
 
         # ── Window switching (Alt+Tab) ──
         "ALT, Tab, cyclenext,"

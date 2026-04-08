@@ -34,6 +34,106 @@
     VBOX_PROGRAM_PATH = "/run/wrappers/bin";
   };
 
+  # ── IdeaVim — mirror Neovim keybinds in IntelliJ ──
+  home.file.".ideavimrc".text = ''
+    " ── IdeaVim config (synced with Neovim keybinds) ──
+    let mapleader=" "
+
+    " ── Plugins ──
+    set surround
+    set commentary
+    set highlightedyank
+    set nerdtree
+    set which-key
+    set notimeout
+
+    " ── Settings ──
+    set scrolloff=8
+    set number
+    set relativenumber
+    set incsearch
+    set ignorecase
+    set smartcase
+    set clipboard+=unnamed
+
+    " ── Move selected lines in visual mode ──
+    vnoremap J :m '>+1<CR>gv=gv
+    vnoremap K :m '<-2<CR>gv=gv
+
+    " ── Join lines without moving cursor ──
+    nnoremap J mzJ`z
+
+    " ── Centered scrolling ──
+    nnoremap <C-d> <C-d>zz
+    nnoremap <C-u> <C-u>zz
+
+    " ── Centered search ──
+    nnoremap n nzzzv
+    nnoremap N Nzzzv
+
+    " ── Paste over selection without yanking ──
+    xnoremap <leader>p "_dP
+
+    " ── Yank to system clipboard ──
+    nnoremap <leader>y "+y
+    vnoremap <leader>y "+y
+    nnoremap <leader>Y "+Y
+
+    " ── Delete to void register ──
+    nnoremap <leader>d "_d
+    vnoremap <leader>d "_d
+
+    " ── Escape from insert with Ctrl-C ──
+    inoremap <C-c> <Esc>
+
+    " ── Disable Q ──
+    nnoremap Q <nop>
+
+    " ── Window navigation ──
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-l> <C-w>l
+
+    " ── Toggle word wrap ──
+    nnoremap <leader>w :action EditorToggleUseSoftWraps<CR>
+
+    " ── Project view (netrw equivalent) ──
+    nnoremap <leader>pv :NERDTreeToggle<CR>
+
+    " ── File finder (telescope equivalent) ──
+    nnoremap <leader>pf :action GotoFile<CR>
+    nnoremap <leader>ps :action FindInPath<CR>
+
+    " ── Harpoon-like bookmarks ──
+    nnoremap <leader>hm :action ToggleBookmarkWithMnemonic<CR>
+    nnoremap <leader>h1 :action GotoBookmark1<CR>
+    nnoremap <leader>h2 :action GotoBookmark2<CR>
+    nnoremap <leader>h3 :action GotoBookmark3<CR>
+    nnoremap <leader>h4 :action GotoBookmark4<CR>
+    nnoremap <leader>hn :action GotoNextBookmark<CR>
+    nnoremap <leader>hp :action GotoPreviousBookmark<CR>
+
+    " ── LSP-like actions ──
+    nnoremap gd :action GotoDeclaration<CR>
+    nnoremap gr :action FindUsages<CR>
+    nnoremap gi :action GotoImplementation<CR>
+    nnoremap K :action QuickJavaDoc<CR>
+    nnoremap <leader>ca :action ShowIntentionActions<CR>
+    nnoremap <leader>rn :action RenameElement<CR>
+    nnoremap <leader>f :action ReformatCode<CR>
+    nnoremap [d :action GotoNextError<CR>
+    nnoremap ]d :action GotoPreviousError<CR>
+
+    " ── Git ──
+    nnoremap <leader>gb :action Annotate<CR>
+
+    " ── Run/Debug ──
+    nnoremap <leader>rr :action Run<CR>
+    nnoremap <leader>rd :action Debug<CR>
+    nnoremap <leader>rs :action Stop<CR>
+  '';
+
   gtk = {
     enable = true;
     theme = {

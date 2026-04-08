@@ -303,10 +303,10 @@
 
   programs.firefox.enable = false;
 
-  # Java/JavaFX Wayland scaling fix — prevents blurry rendering at fractional scale
+  # Java/JavaFX — force GTK2 backend (XWayland) for correct popup/menu positioning
   environment.variables = {
     _JAVA_AWT_WM_NONREPARENTING = "1";
-    JAVA_TOOL_OPTIONS = "-Dglass.win.uiScale=1.0 -Dprism.allowhidpi=false -Dprism.forceGPU=false";
+    JAVA_TOOL_OPTIONS = "-Djdk.gtk.version=2";
   };
 
   # List packages installed in system profile.
