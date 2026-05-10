@@ -5,6 +5,7 @@
     shell-integration = bash 
     font-family = JetBrainsMono Nerd Font
     font-size = 10
+    # theme = "GitHub Light Default"
     theme = Dracula
     mouse-hide-while-typing = true
     scrollback-limit = 100000000

@@ -167,7 +167,8 @@
 
   dconf.settings = {
     "org/blueman/general" = {
-      plugin-list = [ "!ConnectionNotifier" ];
+      # Disable connection popups and Bluetooth authorization agent prompts
+      plugin-list = [ "!ConnectionNotifier" "!AuthAgent" ];
     };
   };
 

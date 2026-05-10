@@ -2,6 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
+    (aws-sam-cli.overridePythonAttrs (old: {
+      pythonRelaxDeps = true; # relax all pinned deps at once
+      doCheck = false;
+    }))
+
     audit # Linux audit framework for security auditing
 
     # ── Dev ──
@@ -13,6 +18,7 @@
     file # File type identification utility
     gcc # GNU C/C++ compiler
     gnumake # GNU Make build automation tool
+    go-task
     go # Go programming language compiler & tools
     (symlinkJoin {
       name = "godot";
@@ -269,7 +275,7 @@
     nerd-fonts.jetbrains-mono # JetBrains Mono with Nerd Font icons
 
     # ── Gaming ──
-    luanti-client # Luanti (formerly Minetest) voxel game client
+    # luanti-client # Luanti (formerly Minetest) voxel game client
 
   ];
 }

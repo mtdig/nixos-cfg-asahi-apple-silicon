@@ -68,6 +68,9 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   virtualisation.docker.enable = true;
+  virtualisation.docker.daemon.settings = {
+    insecure-registries = [ "192.168.0.66:5000" ];
+  };
   systemd.services.libvirtd-hostonly-network = {
     description = "Define libvirt host-only network";
     after = [ "libvirtd.service" ];
@@ -225,6 +228,16 @@
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth.settings = {
+    Policy = {
+      AutoEnable = true;
+    };
+    General = {
+      # Auto-accept Bluetooth service authorization (suppresses blueman popups)
+      AutoConnect = true;
+    };
+  };
+  services.blueman.enable = true;
 
   hardware.asahi.peripheralFirmwareDirectory = "/boot/asahi";
   nix.settings.pure-eval = false;
